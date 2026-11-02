@@ -1,5 +1,5 @@
 configmap:
-  db_name: mysql_lb
+  db_name: mysql-lb
 deployment:
   replicas: 1
 backend:
