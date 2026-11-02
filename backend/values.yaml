@@ -3,4 +3,4 @@ configmap:
 deployment:
   replicas: 1
 backend:
-  image: latest
+  image: 1.0.0
