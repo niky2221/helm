@@ -10,7 +10,7 @@ spec:
       project: expense
       app: mysql
       component: dev
-  replicas: {{ .values.statefulset.replicas }}
+  replicas: {{ .Values.statefulset.replicas }}
   minReadySeconds: 10
   template:
     metadata:
@@ -22,7 +22,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: mysql
-        image: niranjan2505/mysql1.0.0:{{ .values.mysql.image }}
+        image: niranjan2505/mysql1.0.0:{{ .Values.mysql.image }}
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
