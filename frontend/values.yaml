@@ -1,0 +1,4 @@
+deployment:
+  replicas: 1
+frontend:
+  image: 1.0.0

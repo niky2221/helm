@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend
+  namespace: expense
+  # this labels are replicaset labels
+  labels: 
+    app: backend
+    tier: expense
+    purpose: deployment
+spec:
+  # modify replicas according to your case
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    # replicaset use these labels to find the pods for creating desired number of replicas
+    matchLabels:
+      app: backend
+      tier: expense
+      purpose: deployment
+  # pod template
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: expense
+        purpose: deployment
+    spec:
+      containers:
+      - name: backend
+        image: niranjan2505/backend:{{ .Values.backend.image }}
+        envFrom:
+        - configMapRef:
+            name: backend
